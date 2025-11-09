@@ -3,7 +3,12 @@ pydantic>=2.0.0
 PyMuPDF>=1.23.0  # This provides the 'fitz' module
 deepeval>=0.21.0
 
-# Optional: Development and testing dependencies
-# pytest>=7.0.0
-# black>=23.0.0
-# flake8>=6.0.0
+# Testing dependencies
+pytest>=7.0.0
+pytest-mock>=3.10.0
+unittest-xml-reporting>=3.2.0
+
+# Development dependencies (optional)
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0

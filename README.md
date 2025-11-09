@@ -170,16 +170,52 @@ flowchart TD
 
 ## 📁 Project Structure
 
+### **Modular Version (Recommended):**
 ```
 fitz-lab/
-├── README.md                 # This file
-├── requirements.txt          # Python dependencies
-├── sampleFitz.py            # Main application script
-└── input/                   # PDF files directory
-    └── table.pdf           # Sample PDF with disability data
+├── README.md                        # This documentation
+├── requirements.txt                 # Python dependencies
+├── config.py                        # Configuration settings
+├── main.py                         # 🎯 Entry point (modular)
+├── models/
+│   ├── __init__.py
+│   └── pdf_models.py               # 📋 Pydantic data models
+├── extractors/
+│   ├── __init__.py
+│   ├── pdf_extractor.py            # 📄 PDF reading utilities
+│   └── table_extractor.py          # 📊 Table parsing logic
+├── processors/
+│   ├── __init__.py
+│   └── document_processor.py       # 🔄 Main orchestration
+├── utils/
+│   ├── __init__.py
+│   └── file_utils.py               # 🛠️ File operations
+└── input/                          # PDF files directory
+    └── table.pdf                   # Sample data
+```
+
+### **Original Version (For Comparison):**
+```
+├── sampleFitz.py                   # 📄 Original monolithic script (271 lines)
 ```
 
 ## 🚀 Usage
+
+### **Two Versions Available:**
+
+#### **🔹 Version 1: Modular Structure (Recommended)**
+```bash
+# Clean, maintainable, production-ready
+python main.py
+```
+
+#### **🔹 Version 2: Original Monolithic**
+```bash
+# Original single-file version for comparison
+python sampleFitz.py
+```
+
+### **Setup Instructions:**
 
 1. **Set up environment:**
 ```bash
@@ -190,8 +226,12 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-2. **Run the application:**
+2. **Run either version:**
 ```bash
+# Recommended: Use the modular version
+python main.py
+
+# Or: Use the original version
 python sampleFitz.py
 ```
 
@@ -242,7 +282,50 @@ Uses regex patterns to identify and extract structured data from unformatted PDF
 ### Type Safety
 All data structures use Pydantic models ensuring type safety and automatic validation of extracted data.
 
+## 🔄 Version Comparison
+
+| Feature | `main.py` (Modular) | `sampleFitz.py` (Original) |
+|---------|-------------------|---------------------------|
+| **Lines of Code** | ~15 (main) + modules | ~271 (single file) |
+| **Structure** | Separated concerns | Mixed responsibilities |
+| **Maintainability** | ✅ High | ⚠️ Medium |
+| **Testability** | ✅ Easy to unit test | ❌ Hard to test parts |
+| **Readability** | ✅ Clear modules | ⚠️ Large single file |
+| **Extensibility** | ✅ Easy to add features | ❌ Requires modification |
+| **Configuration** | ✅ Centralized in `config.py` | ❌ Hardcoded values |
+
+### **When to Use Which Version:**
+
+- **🎯 Use `main.py`** for:
+  - Production environments
+  - When adding new features
+  - Team collaboration
+  - Long-term maintenance
+
+- **📚 Use `sampleFitz.py`** for:
+  - Learning/educational purposes
+  - Quick prototyping
+  - Understanding the full flow in one file
+  - Comparing architectural approaches
+
+## 🧪 Testing Both Versions
+
+```bash
+# Test modular version
+echo "Testing modular version..."
+python main.py
+
+echo -e "\n" + "="*50 + "\n"
+
+# Test original version
+echo "Testing original version..."
+python sampleFitz.py
+```
+
+Both versions produce identical output, demonstrating that refactoring improved code organization without changing functionality.
+
 ---
 
 **Author:** Mary  
-**Created with:** Python 3.12.2, PyMuPDF, Pydantic
+**Created with:** Python 3.12.2, PyMuPDF, Pydantic  
+**Architecture:** Available in both monolithic and modular versions

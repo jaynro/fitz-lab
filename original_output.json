@@ -1,0 +1,56 @@
+🔍 PDF Document Reader - JSON Output (Filtered)
+============================================================
+{
+  "processed_documents": 1,
+  "documents": [
+    {
+      "filename": "table.pdf",
+      "metadata": {
+        "author": "Mary",
+        "creator": "Acrobat PDFMaker 9.0 for Word"
+      },
+      "table_data": {
+        "columns": [
+          "Disability Category",
+          "Participants",
+          "Ballots Completed"
+        ],
+        "rows": [
+          {
+            "disability_category": "Blind",
+            "participants": "5",
+            "ballots_completed": "1",
+            "completion_percentage": "34.5%"
+          },
+          {
+            "disability_category": "Low Vision",
+            "participants": "5",
+            "ballots_completed": "2",
+            "completion_percentage": "98.3%"
+          },
+          {
+            "disability_category": "Dexterity",
+            "participants": "5",
+            "ballots_completed": "4",
+            "completion_percentage": "98.3%"
+          },
+          {
+            "disability_category": "Mobility",
+            "participants": "3",
+            "ballots_completed": "3",
+            "completion_percentage": "95.4%"
+          }
+        ]
+      },
+      "summary": {
+        "total_categories": 4,
+        "categories_found": [
+          "Blind",
+          "Low Vision",
+          "Dexterity",
+          "Mobility"
+        ]
+      }
+    }
+  ]
+}

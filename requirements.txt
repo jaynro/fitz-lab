@@ -1,0 +1,9 @@
+# Core libraries for the fitz-lab project
+pydantic>=2.0.0
+PyMuPDF>=1.23.0  # This provides the 'fitz' module
+deepeval>=0.21.0
+
+# Optional: Development and testing dependencies
+# pytest>=7.0.0
+# black>=23.0.0
+# flake8>=6.0.0
